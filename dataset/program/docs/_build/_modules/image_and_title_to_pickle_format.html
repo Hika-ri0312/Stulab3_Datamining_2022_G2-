@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>image_and_title_to_pickle_format &#8212; project v1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for image_and_title_to_pickle_format</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">pickle形式で保存されている画像データを、pandas.DataFrame()型で格納し、教師データを付与する。</span>
+
+<span class="sd">This is main.py</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<div class="viewcode-block" id="load_imgs"><a class="viewcode-back" href="../image_and_title_to_pickle_format.html#image_and_title_to_pickle_format.load_imgs">[docs]</a><span class="k">def</span> <span class="nf">load_imgs</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; 画像データを2つのpickleファイルから読み込み、必要なデータのみnumpy配列に保存</span>
+
+<span class="sd">    Return:</span>
+
+<span class="sd">    imgs1 (numpy.ndarray): 1つ目のファイルの画像データ。2次元配列になっている。</span>
+
+<span class="sd">    imgs2 (numpy.ndarray): 2つ目のファイルの画像データ。2次元配列になっている。</span>
+
+<span class="sd">    Examples:</span>
+
+<span class="sd">    &gt;&gt;&gt; a, b = load_imgs()</span>
+<span class="sd">    &gt;&gt;&gt; type(a)</span>
+<span class="sd">    &lt;class &#39;numpy.ndarray&#39;&gt;</span>
+
+<span class="sd">    &gt;&gt;&gt; len(a.shape)</span>
+<span class="sd">    2</span>
+<span class="sd">    </span>
+<span class="sd">     &quot;&quot;&quot;</span>
+    <span class="n">path1</span> <span class="o">=</span> <span class="s2">&quot;../bfo_data/ukiyoe_grayImg.pkl&quot;</span>
+    <span class="n">path2</span> <span class="o">=</span> <span class="s2">&quot;../bfo_data/met_data.pkl&quot;</span>
+    <span class="n">df1_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">path1</span><span class="p">)</span>
+    <span class="n">df2_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">path2</span><span class="p">)</span>
+
+    <span class="n">imgs1</span><span class="o">=</span><span class="n">df1_temp</span><span class="p">[</span><span class="s2">&quot;images&quot;</span><span class="p">]</span>
+
+    <span class="n">imgs2</span><span class="o">=</span><span class="n">df2_temp</span><span class="p">[</span><span class="s2">&quot;images&quot;</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">imgs1</span><span class="p">,</span> <span class="n">imgs2</span></div>
+
+
+<div class="viewcode-block" id="get_plickle"><a class="viewcode-back" href="../image_and_title_to_pickle_format.html#image_and_title_to_pickle_format.get_plickle">[docs]</a><span class="k">def</span> <span class="nf">get_plickle</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; 画像データ1には Ukiyoe のラベル、画像データ2には Western のラベルをつける</span>
+
+<span class="sd">    val:</span>
+
+<span class="sd">    imgs1 (numpy.ndarray): 2次元配列.</span>
+
+<span class="sd">    imgs2 (numpy.ndarray): 2次元配列.</span>
+
+<span class="sd">    df1 (pandas.DataFrame): imgs1 のに Ukiyoe ラベルをつけたもの</span>
+
+<span class="sd">    df2 (pandas.DataFrame): imgs2 のに Western ラベルをつけたもの</span>
+
+<span class="sd">    df (pandas.DataFrame): df1 と df2 を合わせたもの</span>
+<span class="sd">     &quot;&quot;&quot;</span>
+    <span class="n">imgs1</span><span class="p">,</span> <span class="n">imgs2</span><span class="o">=</span><span class="n">load_imgs</span><span class="p">()</span>
+
+    <span class="n">df1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;images&quot;</span><span class="p">:</span> <span class="nb">iter</span><span class="p">(</span><span class="n">imgs1</span><span class="p">)})</span>
+    <span class="n">df1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="p">,</span><span class="s2">&quot;Class&quot;</span><span class="p">,</span> <span class="s2">&quot;Ukiyoe&quot;</span><span class="p">)</span>
+
+    
+    <span class="n">df2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;images&quot;</span><span class="p">:</span> <span class="nb">iter</span><span class="p">(</span><span class="n">imgs2</span><span class="p">)})</span>
+    <span class="n">df2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="p">,</span><span class="s2">&quot;Class&quot;</span><span class="p">,</span> <span class="s2">&quot;Western&quot;</span><span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">df</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s2">&quot;../aft_data/ukiyoe_and_western.pkl&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;imgs: </span><span class="se">\n</span><span class="si">{</span><span class="n">df</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+    
+    
+    
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">get_plickle</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">project</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../converting_ukiyoe_image_to_gray_size.html">converting_ukiyoe_image_to_gray_size module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../converting_western_image_to_gray_size.html">converting_western_image_to_gray_size module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataset.html">dataset module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../image_and_title_to_pickle_format.html">image_and_title_to_pickle_format module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Helve.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
