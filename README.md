@@ -89,8 +89,7 @@ $ python svm/program/src/randomforest.py
 ```
 
 - ※ CNNは、Google Colab での実装のため、cnn.ipynbおよび、ダウンロードした画像データを下記のような配置にすることで実行できる.
-
-学習データと画像
+学習データと教師データは任意で分割する
 
 ```
 temp #任意のディレクトリ
