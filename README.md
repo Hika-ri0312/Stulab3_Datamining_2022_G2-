@@ -62,15 +62,15 @@ Programs #任意のディレクトリ
 
 - 手順1 浮世絵の画像データをpd.DataFrame()型に格納
 **Programs**
-```$ python dataset/program/src/converting_ukiyoe_image_to_gray_size.py ```
+- ```$ python dataset/program/src/converting_ukiyoe_image_to_gray_size.py ```
 
 - 手順2 洋風絵の画像データをpd.DataFrame()型に格納
 **Programs**
-```$ python dataset/program/src/converting_western_image_to_gray_size.py ```
+- ```$ python dataset/program/src/converting_western_image_to_gray_size.py ```
 
 - 手順3 浮世絵と洋風絵に教師データを結合する
 **Programs**
-```$ python dataset/program/src/image_and_title_to_pickle_format.py ```
+- ```$ python dataset/program/src/image_and_title_to_pickle_format.py ```
 
 
 ```
