@@ -107,8 +107,14 @@ temp #任意のディレクトリ
 
 ## Author
 
-氏名: Choi Jeongho
+氏名: Choi Jeongho  
 連絡先: 185739@ie.u-ryukyu.ac.jp
 
-氏名: 石原 光竜
+氏名: 石原 光竜  
 連絡先: 205217@ie.u-ryukyu.ac.jp
+
+氏名: 屋比久 猛成  
+連絡先: 205744@ie.u-ryukyu.ac.jp
+
+氏名: 仲宗根 悠太  
+連絡先: 205757@ie.u-ryukyu.ac.jp
