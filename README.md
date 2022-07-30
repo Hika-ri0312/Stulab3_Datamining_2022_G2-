@@ -63,17 +63,17 @@ Programs #任意のディレクトリ
 本学習モデルでは、データの前処理を行うプログラムを実行する必要がある.
 前処理は全3工程存在する.(3工程に分割した理由は開発者の都合による)
 
-- 手順1 浮世絵の画像データをpd.DataFrame()型に格納  
-**Programs**  
+- 手順1 浮世絵の画像データをpd.DataFrame()型に格納.  
+Programsで実行  
 ```$ python dataset/program/src/converting_ukiyoe_image_to_gray_size.py ```
 
-- 手順2 洋風絵の画像データをpd.DataFrame()型に格納
-**Programs**
-- ```$ python dataset/program/src/converting_western_image_to_gray_size.py ```
+- 手順2 洋風絵の画像データをpd.DataFrame()型に格納.  
+Programsで実行    
+```$ python dataset/program/src/converting_western_image_to_gray_size.py ```
 
-- 手順3 浮世絵と洋風絵に教師データを結合する
-**Programs**
-- ```$ python dataset/program/src/image_and_title_to_pickle_format.py ```
+- 手順3 浮世絵と洋風絵に教師データを結合する.  
+Programsで実行    
+```$ python dataset/program/src/image_and_title_to_pickle_format.py ```
 
 
 ```
