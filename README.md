@@ -10,8 +10,8 @@
 - [arc-ukiyoe-faces](https://github.com/rois-codh/arc-ukiyoe-faces/)
 - [metmuseumopenacces](https://github.com/metmuseum/openaccess)
 - ※データセットを利用するには、リンク先の手順に沿って取得する。  
-**arc-ukiyoe-faces**からは、zipフォルダを取得する。
-**metmuseumopenacces**からは、csvファイルを取得し、手順に沿って画像データをダウンロードする必要がある。
+ [arc-ukiyoe-faces](https://github.com/rois-codh/arc-ukiyoe-faces/)からは、zipフォルダを取得する。
+[metmuseumopenacces](https://github.com/metmuseum/openaccess)からは、csvファイルを取得し、手順に沿って画像データをダウンロードする必要がある。
 
 動作環境
 
