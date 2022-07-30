@@ -95,17 +95,17 @@ $ python randomforest/program/src/Random_forest.py
 学習データと教師データは任意で分割する.
 
 ```
-temp #任意のディレクトリ
+Programs #任意のディレクトリ
 ├── program/src/
-    ├── cnn
-        ├── ukio_west
-        │   ├──train
-        │      ├──ukio (浮世絵の学習用の画像ファイル)
-        │      ├──west (洋風絵の学習用の画像ファイル)
+    ├── cnn.ipynb
+        ├── ukio_west(root)
+        │   ├──train(root)
+        │      ├──ukio #ここに浮世絵の学習用の画像ファイルをいれる
+        │      ├──west #ここに洋風絵の学習用の画像ファイルをいれる
         │
-        ├── validation
-	    ├──ukio (浮世絵のテスト用の画像ファイル)
-	    ├──west (洋風絵のテスト用の画像ファイル)
+        ├── validation(root)
+	    ├──ukio #ここに浮世絵のテスト用の画像ファイルをいれる
+	    ├──west #ここに洋風絵のテスト用の画像ファイルをいれる
 ```
 
 ## Author
