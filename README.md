@@ -85,7 +85,7 @@ $ python svm/program/src/linear_svc.py
 
 ```
 # RandomForest
-$ python svm/program/src/randomforest.py
+$ python randomforest/program/src/Random_forest.py
 ```
 
 - ※ CNNは、Google Colab での実装のため、cnn.ipynbおよび、ダウンロードした画像データを下記のような配置にすることで実行できる.
