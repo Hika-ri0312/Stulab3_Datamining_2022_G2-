@@ -15,11 +15,11 @@
 
 ## モジュールのドキュメントHTML
 
-- [dataset](https://github.com/Hika-ri0312/Stulab3_Datamining_2022_G2-/tree/master/dataset/program/docs/_build/dataset.html)
+- [dataset](https://github.com/Hika-ri0312/Stulab3_Datamining_2022_G2-/dataset/program/docs/_build/dataset.html)
 
-- [SVM](https://github.com/Hika-ri0312/Stulab3_Datamining_2022_G2-/tree/master/svm/program/docs/_build/svc.html)
+- [SVM](https://github.com/Hika-ri0312/Stulab3_Datamining_2022_G2-/svm/program/docs/_build/svc.html)
 
-- [Random Forest](https://github.com/Hika-ri0312/Stulab3_Datamining_2022_G2-/tree/master/randomforest/program/docs/_build/Random_forest.html)
+- [Random Forest](https://github.com/Hika-ri0312/Stulab3_Datamining_2022_G2-/randomforest/program/docs/_build/Random_forest.html)
 
 ## 動作環境
 
