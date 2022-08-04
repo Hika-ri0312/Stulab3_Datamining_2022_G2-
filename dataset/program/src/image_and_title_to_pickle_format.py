@@ -24,8 +24,8 @@ def load_imgs():
     2
     
      """
-    path1 = "../bfo_data/ukiyoe_grayImg.pkl"
-    path2 = "../bfo_data/met_data.pkl"
+    path1 = "dataset/bfo_data/ukiyoe_grayImg.pkl"
+    path2 = "dataset/bfo_data/met_data.pkl"
     df1_temp = pd.read_pickle(path1)
     df2_temp = pd.read_pickle(path2)
 
@@ -62,7 +62,7 @@ def get_plickle():
 
     df = pd.concat([df1, df2], ignore_index=True)
 
-    df.to_pickle("../aft_data/ukiyoe_and_western.pkl")
+    df.to_pickle("dataset/aft_data/ukiyoe_and_western.pkl")
     print(f"imgs: \n{df}")
     
     

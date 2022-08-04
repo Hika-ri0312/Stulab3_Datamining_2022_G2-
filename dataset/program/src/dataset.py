@@ -7,6 +7,8 @@ This is module
 import pandas as pd
 import numpy as np
 
+
+
 def read_pickle():
     """ ukiyoe_and_western.pklを読み込む
 
@@ -25,7 +27,7 @@ def read_pickle():
     >>> len(a[0])
     4,096
      """
-    path = "../aft_data/ukiyoe_and_western.pkl"
+    path = "dataset/aft_data/ukiyoe_and_western.pkl"
     df=pd.read_pickle(path)
     new_df=df.dropna(how='any')
 
@@ -55,6 +57,7 @@ def load_dataset(n=0, m=-1):
     y (numpy.ndarray): 教師データ. 1重配列. Ukiyoe か Western のラベル.
 
      """
+    
     x, y=read_pickle()
     
     #x=np.array(x)

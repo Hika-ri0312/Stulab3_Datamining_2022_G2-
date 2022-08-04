@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV #データ分割用,グリッドサーチ
 from sklearn.ensemble import RandomForestClassifier #ランダムフォレスト
 
-from sklearn.metrics import confusion_matrix
+from yellowbrick.classifier import ConfusionMatrix
 import seaborn as sns
 import matplotlib.pyplot as plt
 import doctest
@@ -110,8 +110,13 @@ def random_forest(x,y):
     
     #混同行列描画
     y_pred = model.predict(x_test) # テストデータを用いて予測値を算出
-    m = confusion_matrix(y_test,y_pred)
-    print(f'Confusion matrix ==================================================== \n{m}')
+    #m = confusion_matrix(y_test,y_pred)
+    visualizer = ConfusionMatrix(model)
+    visualizer.fit(x_train, y_train)
+    visualizer.score(x_test, y_test)
+    visualizer.poof()
+    
+    #print(f'Confusion matrix ==================================================== \n{m}')
     
 
     # 精度を確認

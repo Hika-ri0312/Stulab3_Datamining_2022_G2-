@@ -24,7 +24,7 @@ def load_fhoto_img():
     >>> len(datam.shape)
     2
      """
-    path1 = "../bfo_data/images"
+    path1 = "dataset/bfo_data/images"
     # path内のデイレクトリ下にあるフォルダ名をリストで取得.
     folders = os.listdir(path1)
 
@@ -80,7 +80,7 @@ def get_plickle():
         df.at[i, 'images'] = np.array(vecter_imgs)
 
     print(df)
-    df.to_pickle("../bfo_data/met_data.pkl")
+    df.to_pickle("dataset/bfo_data/met_data.pkl")
 
 
 if __name__=="__main__":
