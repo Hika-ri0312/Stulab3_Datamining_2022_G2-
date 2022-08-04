@@ -13,7 +13,15 @@
  [arc-ukiyoe-faces](https://github.com/rois-codh/arc-ukiyoe-faces/)からは、zipフォルダを取得する。
 [metmuseumopenacces](https://github.com/metmuseum/openaccess)からは、csvファイルを取得し、手順に沿って画像データをダウンロードする必要がある。
 
-動作環境
+## モジュールのドキュメントHTML
+
+- [dataset](https://github.com/Hika-ri0312/Stulab3_Datamining_2022_G2-/tree/master/dataset/program/docs/_build/dataset.html)
+
+- [SVM](https://github.com/Hika-ri0312/Stulab3_Datamining_2022_G2-/tree/master/svm/program/docs/_build/svc.html)
+
+- [Random Forest](https://github.com/Hika-ri0312/Stulab3_Datamining_2022_G2-/tree/master/randomforest/program/docs/_build/Random_forest.html)
+
+## 動作環境
 
 - Python 3.x
 - scikit-learn
